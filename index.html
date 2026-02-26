@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thomas Arnaud — Candidature | Assistant(e) Marketing</title>
+
+  <style>
+    :root{
+      --text:#0b0b0b;
+      --muted:rgba(0,0,0,.75);
+      --muted2:rgba(0,0,0,.55);
+
+      --bgOverlay:rgba(0,0,0,.35);
+
+      /* BLOCS 100% BLANCS */
+      --panel:#ffffff;
+      --panel2:#ffffff;
+      --line:rgba(0,0,0,.12);
+
+      --accent:#ffd24d;
+
+      --max:1100px;
+      --radius:16px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background: url("portfolio.jpg") center/cover no-repeat fixed;
+      overflow-x:hidden;
+    }
+
+    /* overlay léger pour lisibilité */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background: var(--bgOverlay);
+      z-index:-1;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 90px}
+
+    /* Top nav */
+    .top{
+      position:sticky;top:0;z-index:50;
+      background: rgba(255,255,255,.95);
+      border-bottom:1px solid var(--line);
+    }
+    .top .inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+    .dot{
+      width:10px;height:10px;border-radius:99px;
+      background:linear-gradient(135deg,var(--accent),#ffeaa9);
+      box-shadow:0 0 0 6px rgba(255,210,77,.20);
+    }
+    nav{display:flex;gap:10px;flex-wrap:wrap}
+    nav a{
+      font-size:13px;color:var(--muted2);
+      padding:8px 10px;border-radius:999px;
+      border:1px solid transparent;
+      transition:.2s ease;
+    }
+    nav a:hover{color:var(--text);border-color:var(--line);background:rgba(0,0,0,.03)}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;font-size:13px;border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      transition:.2s ease;
+      cursor:pointer;
+      color:var(--text);
+      font-weight:700;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(0,0,0,.02)}
+    .btn.primary{
+      border-color:rgba(0,0,0,.12);
+      background: var(--accent);
+      color:#000;
+      font-weight:900;
+    }
+
+    /* Sections */
+    section{padding:70px 0}
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:26px;
+    }
+
+    h1{
+      font-size: clamp(34px, 5vw, 58px);
+      line-height:1.0;
+      letter-spacing:-1px;
+      margin-bottom:14px;
+      color:var(--text);
+    }
+    h2{
+      font-size: clamp(22px, 3vw, 34px);
+      letter-spacing:-.4px;
+      margin-bottom:14px;
+      color:var(--text);
+    }
+    p{color:var(--muted);line-height:1.6;font-size:18px}
+    .small{font-size:14px;color:var(--muted2)}
+    .accent{color:#000;font-weight:900;background:var(--accent);padding:0 6px;border-radius:6px}
+    .sp{height:18px}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      align-items:start;
+      padding-top:36px;
+    }
+    @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
+
+    .kicker{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--muted2);
+      font-size:13px;
+      width:fit-content;
+      margin-bottom:16px;
+    }
+
+    .tagrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .tag{
+      font-size:12px;padding:8px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--muted2);
+    }
+
+    .facts{display:grid;gap:10px;margin-top:14px}
+    .fact{
+      display:flex;justify-content:space-between;gap:10px;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:13px;
+      color:var(--text);
+    }
+    .fact span{color:var(--muted2)}
+    .fact b{font-weight:900;color:var(--text)}
+
+    /* Board */
+    .board{
+      column-count:3;
+      column-gap:14px;
+    }
+    @media (max-width: 980px){ .board{column-count:2} }
+    @media (max-width: 620px){ .board{column-count:1} }
+
+    .tile{
+      break-inside:avoid;
+      margin:0 0 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+    }
+    .tile img{width:100%;display:block}
+    .tile .meta{padding:12px}
+    .tile .meta b{display:block;margin-bottom:4px;font-size:13px;color:var(--text)}
+    .tile .meta span{color:var(--muted2);font-size:12px}
+
+    /* Letter */
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width: 980px){ .two{grid-template-columns:1fr} }
+
+    /* list style */
+    ul.clean{list-style:none;margin:14px 0 0;padding:0}
+    ul.clean li{
+      padding:10px 12px;margin:8px 0;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    footer{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted2);
+      font-size:12px;
+      display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOP BAR -->
+  <header class="top">
+    <div class="inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Thomas Arnaud</span>
+      </div>
+
+      <nav>
+        <a href="#hero">Accueil</a>
+        <a href="#board">Board</a>
+        <a href="#lettre">Lettre</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center;">
+        <a class="btn" href="#contact">Me contacter</a>
+        <button class="btn primary" id="btnCV">⬇ Télécharger CV (PDF)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero">
+        <div class="panel">
+          <div class="kicker">Assistant Marketing (Bilingue) — <b>Volet Exécution</b></div>
+          <h1>Thomas Arnaud</h1>
+          <p>
+            Étudiant au baccalauréat en administration des affaires à l’UQAM, spécialisé en marketing, avec une diplomation prévue en juin 2026.
+            Au cours des trois dernières années, j’ai développé une vision globale de l’entreprise, de la comptabilité aux différentes fonctions du marketing.
+            Je mets à profit ma créativité dans la conception de supports visuels (Canva) ainsi que dans la réalisation de projets concrets, notamment avec l’impression 3D.
+            Mon parcours inclut des mandats réels pour des organisations, dont une étude quantitative pour le Ginkgo Café et un projet de commandite pour l’OBNL Fillactive (hiver 2026).
+            Rigoureux, créatif et orienté résultats, je souhaite contribuer à des projets marketing à fort impact.
+          </p>
+          <div class="sp"></div>
+          <p class="small">
+            Disponibilité : 20 h / semaine • 3 jours • flexible • immédiat
+          </p>
+
+          <div class="tagrow">
+            <span class="tag">Canva (intermédiaire)</span>
+            <span class="tag">PowerPoint / Excel</span>
+            <span class="tag">Réseaux sociaux</span>
+            <span class="tag">Événementiel</span>
+            <span class="tag">FR / EN</span>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <h2 style="margin-bottom:10px;">Résumé rapide</h2>
+          
+          <div class="facts">
+            <div class="fact"><span>Retail premium</span><b>9/11 objectifs mensuels de vente (2025)</b></div>
+            <div class="fact"><span>Relation client</span><b>Portefeuille ~15 clients</b></div>
+            <div class="fact"><span>Gestion des opérations</span><b>Dispatch & délais</b></div>
+            <div class="fact"><span>Outils</span><b>Canva • PPT • Excel</b></div>
+          </div>
+          <div class="sp"></div>
+          <a class="btn" href="#lettre">Lire la lettre</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BOARD -->
+    <section id="board">
+      <div class="panel">
+        <h2>Board — Mes visuels & projets</h2>
+        <p class="small">Preuves concrètes (visuels, opérations, événements, recommandation).</p>
+        <div class="sp"></div>
+
+        <div class="board">
+          <article class="tile">
+            <img src="3d1.jpg" alt="Projet impression 3D - échecs">
+            <div class="meta"><b>Création 3D</b><span>Projet d’échecs • prototypage</span></div>
+          </article>
+
+          <article class="tile">
+            <img src="3d2.jpg" alt="Projet impression 3D - échecs">
+            <div class="meta"><b>Création 3D</b><span>Production • itérations</span></div>
+          </article>
+
+          <article class="tile">
+            <img src="caa.jpg" alt="Poste de travail CAA-Québec">
+            <div class="meta"><b>CAA-Québec</b><span>Dispatch • pression • délais</span></div>
+          </article>
+
+          <article class="tile">
+            <img src="CG vitrine.jpg" alt="Vitrine Canada Goose">
+            <div class="meta"><b>Canada Goose</b><span>Vitrine • merchandising</span></div>
+          </article>
+
+          <article class="tile">
+            <img src="commandite CG.jpg" alt="Commandite Canada Goose">
+            <div class="meta"><b>Activation</b><span>Commandite • expérience client</span></div>
+          </article>
+
+          <article class="tile">
+            <div class="meta">
+              <b>Lettre de témoignage Canada Goose</b>
+              <span>
+                <a class="btn" href="Mail Canada Goose Avis - Christina et Gina.pdf ver C.pdf" target="_blank">Ouvrir le PDF</a>
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LETTRE -->
+    <section id="lettre">
+      <div class="panel">
+        <h1>Lettre de motivation </h1>
+        <div class="one">
+          <div class="panel" style="background:#fff;">
+            <p>
+              Bonjour,<br><br>
+              Je candidate au poste d’Assistant Marketing (Bilingue). Je désire
+              soutenir l’exécution des campagnes, produire des contenus, et maintenir une image de marque cohérente sur tous
+              les points de contact.
+            </p>
+            <div class="sp"></div>
+            <p>
+              Mon expérience chez Canada Goose m’a appris la rigueur d’une marque premium (vitrines, agencement, activations,
+              relation client). Chez CAA-Québec, je gère un flux constant de demandes avec des délais courts, ce qui renforce
+              ma capacité à livrer vite et avec précision.
+            </p>
+            <div class="sp"></div>
+            <p>
+              Motivé par un rôle polyvalent orienté exécution en marketing, je serais heureux de contribuer au rayonnement de l'entreprise.
+            </p>
+            <div class="sp"></div>
+            <p><b>Thomas Arnaud</b></p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="panel">
+        <h1>Contact</h1>
+        <div class="sp"></div>
+
+        <div class="one">
+          <div class="panel" style="background:#fff;">
+            <p>
+              Montréal, QC<br>
+              Téléphone : <b>514 226 8868</b><br>
+              Email : <b>arnaudthomas972@gmail.com</b><br>
+              <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+                <a class="btn" href="tel:+15142268868"
+                <a class="btn" href="mailto:arnaudthomas972@gmail.com"
+              </div>
+            </p>
+         
+              LinkedIn : <a id="lnk" href="#" target="_blank" style="text-decoration:underline;text-underline-offset:3px;">—</a>
+              </div>
+             </footer>
+            </p>
+
+          <div>02/25/<span id="year"></span> Thomas Arnaud</div>
+      
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const CONFIG = {
+      linkedinUrl: "https://www.linkedin.com/in/thomas-arnaud-ba179b1bb/?locale=en_US",
+      cvPdfUrl: "cv-thomas-arnaud.pdf"
+    };
+
+    const lnk = document.getElementById("lnk");
+    lnk.href = CONFIG.linkedinUrl;
+    lnk.textContent = CONFIG.linkedinUrl.replace("https://","");
+
+    document.getElementById("btnCV").addEventListener("click", () => {
+      window.open(CONFIG.cvPdfUrl, "_blank");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute("href"));
+        if(target) target.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+  </script>
+</body>
+</html>
